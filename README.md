@@ -3,13 +3,15 @@ When I was reading guides on how to find blind XSS I took their advice quite lit
 
 bXSSRequest takes a list of urls/endpoints and sends a request with blind XSS payloads to it. 
 
-###What do I need to do to make this work?
+#### Advisory: This is meant for ethical purposes, I don't condone any bafoonery. 
+
+### What do I need to do to make this work?
 
 Add your payloads to the `payloads = ['','']` in the script from XSSHunter or your server.
 
 Still testing and will add more stuff later, like a form crawler etc.
 
-###Example Commands
+### Example Commands
 
 `python3 bXSSRequest.py -help`
 
@@ -53,4 +55,4 @@ Still testing and will add more stuff later, like a form crawler etc.
 
 Why is this not in Go?
 
-Because I'm not the kind of person that follows the crowd.
+Because I'm not the kind of person that follows the trend.
