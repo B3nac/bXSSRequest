@@ -1,7 +1,13 @@
 # bXSSRequest
 When I was reading guides on how to find blind XSS I took their advice quite literally and made a tool that would spray payloads everywhere.
 
-Still testing and will add more stuff later, form crawler etc.
+bXSSRequest takes a list of urls/endpoints and sends a request with blind XSS payloads to it. 
+
+###What do I need to do to make this work?
+
+Add your payloads to the `payloads = ['','']` in the script from XSSHunter or your server.
+
+Still testing and will add more stuff later, like a form crawler etc.
 
 ###Example Commands
 
@@ -43,3 +49,8 @@ Still testing and will add more stuff later, form crawler etc.
 
 -all : Inject all useragent, referer, and cookie.
 
+### F.A.Q.
+
+Why is this not in Go?
+
+Because I'm not the kind of person that follows the crowd.
