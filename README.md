@@ -1,17 +1,31 @@
 # bXSSRequest
-When I was reading guides on how to find blind XSS I took their advice quite literally and made a tool that woudl spray payloads everywhere.
+When I was reading guides on how to find blind XSS I took their advice quite literally and made a tool that would spray payloads everywhere.
+
+Still testing and will add more stuff later, form crawler etc.
 
 ###Example Commands
 
-####[Encoding options]: 
---------------------------
+`python3 bXSSRequest.py -help`
+
+`python3 bXSSRequest.py file.txt -e -get -user-agent`
+
+`python3 bXSSRequest.py file.txt -e -post -referer`
+
+`python3 bXSSRequest.py test.txt -ne -post -cookie`
+
+`python3 bXSSRequest.py test.txt -e -post -all`
+
+---
+
+#### Encoding options: 
+
 -ne : Plaintext request.
 
 -e  : URL encoded request.
 
 ---
 
-####[Request types]:
+#### Request types:
 
 -get : Get request
 
@@ -19,7 +33,7 @@ When I was reading guides on how to find blind XSS I took their advice quite lit
 
 ---
 
-####[Payload options]:
+#### Payload options:
 
 -user-agent : User agent injecton.
 
