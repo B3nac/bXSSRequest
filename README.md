@@ -1,5 +1,5 @@
 # bXSSRequest
-When I was reading guides on how to find blind XSS I took their advice quite literally and made a tool that would spray payloads everywhere.
+When I was reading guides on how to find blind XSS I took their advice quite literally and made a tool that would spray payloads at a list of urls or endpoints in request headers.
 
 bXSSRequest takes a list of urls/endpoints and sends a request with blind XSS payloads to it. 
 
