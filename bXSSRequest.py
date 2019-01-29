@@ -47,12 +47,17 @@ def encoded_request(rt):
     if sys.argv[4] in {"-referer"}:
         for line in range(len(url_array)):
             for pay in payloads:
+                url = line
                 try:
-                    encpay = urllib.parse.quote(pay)
-                    headers = {'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36','referer': encpay}
-                    url = line
-                    gr = requests.get(url_array[url], headers=headers, timeout=3)
-                    pr = requests.post(url_array[url], headers=headers, timeout=3) 
+                    if sys.argv[2] in {"-e"}:
+                        encpay = urllib.parse.quote(pay)
+                        headers = {'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36','referer': encpay}
+                        gr = requests.get(url_array[url], headers=headers, timeout=3)
+                        pr = requests.post(url_array[url], headers=headers, timeout=3)
+                    else:
+                        headers = {'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36','referer': pay}
+                        gr = requests.get(url_array[url], headers=headers, timeout=3)
+                        pr = requests.post(url_array[url], headers=headers, timeout=3) 
                     if rt == "-get":
                         print(tc.tcolors.SUCCESS + "===================================================" + tc.tcolors.ENDC)
                         print(tc.tcolors.SYNTAX + str(gr.url) + tc.tcolors.ENDC)
@@ -72,13 +77,19 @@ def encoded_request(rt):
     if sys.argv[4] in {"-cookie"}:
         for line in range(len(url_array)):
             for pay in payloads:
+                url = line
                 try:
-                    encpay = urllib.parse.quote(pay)
-                    headers = {'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
-                    cookies = {'session': encpay}
-                    url = line
-                    gr = requests.get(url_array[url], headers=headers, cookies=cookies, timeout=3)
-                    pr = requests.post(url_array[url], headers=headers, cookies=cookies, timeout=3) 
+                    if sys.argv[2] in {"-e"}:
+                        encpay = urllib.parse.quote(pay)
+                        headers = {'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
+                        cookies = {'session': encpay}
+                        gr = requests.get(url_array[url], headers=headers, cookies=cookies, timeout=3)
+                        pr = requests.post(url_array[url], headers=headers, cookies=cookies, timeout=3)
+                    else:
+                        headers = {'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
+                        cookies = {'session': pay}
+                        gr = requests.get(url_array[url], headers=headers, cookies=cookies, timeout=3)
+                        pr = requests.post(url_array[url], headers=headers, cookies=cookies, timeout=3) 
                     if rt == "-get":
                         print(tc.tcolors.SUCCESS + "===================================================" + tc.tcolors.ENDC)
                         print(tc.tcolors.SYNTAX + str(gr.url) + tc.tcolors.ENDC)
@@ -98,13 +109,19 @@ def encoded_request(rt):
     if sys.argv[4] in {"-all"}:
         for line in range(len(url_array)):
             for pay in payloads:
+                url = line
                 try:
-                    encpay = urllib.parse.quote(pay)
-                    cookies = {'session': encpay}
-                    headers = {'user-agent': encpay, 'referer': encpay}
-                    url = line
-                    gr = requests.get(url_array[url], headers=headers, cookies=cookies, timeout=3)
-                    pr = requests.post(url_array[url], headers=headers, cookies=cookies, timeout=3) 
+                    if sys.argv[2] in {"-e"}:
+                        encpay = urllib.parse.quote(pay)
+                        cookies = {'session': encpay}
+                        headers = {'user-agent': encpay, 'referer': encpay}
+                        gr = requests.get(url_array[url], headers=headers, cookies=cookies, timeout=3)
+                        pr = requests.post(url_array[url], headers=headers, cookies=cookies, timeout=3)
+                    else:
+                        cookies = {'session': pay}
+                        headers = {'user-agent': pay, 'referer': pay}
+                        gr = requests.get(url_array[url], headers=headers, cookies=cookies, timeout=3)
+                        pr = requests.post(url_array[url], headers=headers, cookies=cookies, timeout=3) 
                     if rt == "-get":
                         print(tc.tcolors.SUCCESS + "===================================================" + tc.tcolors.ENDC)
                         print(tc.tcolors.SYNTAX + str(gr.url) + tc.tcolors.ENDC)
