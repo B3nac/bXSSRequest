@@ -10,7 +10,7 @@ payload_array = []
 def populate_array():
     with open(str(sys.argv[1])) as f:
         for line in f:
-            url_array.append(str(line))
+            url_array.append(str(line).strip('\n'))
     f.close()
 
 def encoded_request(rt):
